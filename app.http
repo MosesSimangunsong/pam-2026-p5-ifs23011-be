@@ -14,7 +14,8 @@ Content-Type: application/json
 {
   "name": "Tester",
   "username": "tester",
-  "password": "tester"
+  "password": "tester",
+  "about": "Halo, saya pengguna baru."
 }
 
 ### Masuk ke layanan
@@ -78,7 +79,8 @@ Content-Type: application/json
 
 {
   "name": "Tester Update",
-  "username": "tester"
+  "username": "tester",
+  "about": "Ini adalah deskripsi tentang saya yang baru diupdate."
 }
 
 ### Mengubah kata sandi akun
@@ -105,7 +107,7 @@ Content-Type: image/png
 < ./uploads/examples/me.png
 --WebAppBoundary--
 
-### Mengambil data tumbuhan berdasarkan id-nya
+### Mengambil data photo profil berdasarkan id-nya
 @userId = 00ed9d33-61b0-48b7-a32a-6510af028731
 
 # @name GetMyPhoto
@@ -117,9 +119,15 @@ Content-Type: application/json
 ## Todos
 ### ---------------------------------------
 
-### Mengambil semua data todo user saat ini
+### Mengambil semua data todo user saat ini (dengan pagination & filter)
 # @name GetTodos
-GET {{BaseUrl}}/todos?search=
+GET {{BaseUrl}}/todos?search=&page=1&perPage=10&filter=semua&urgency=semua
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
+
+### Mengambil ringkasan/summary statistik todo
+# @name GetTodosSummary
+GET {{BaseUrl}}/todos/summary
 Authorization: Bearer {{authToken}}
 Content-Type: application/json
 
@@ -130,8 +138,9 @@ Authorization: Bearer {{authToken}}
 Content-Type: application/json
 
 {
-  "title": "Judul Todo",
-  "description": "Deskripsi Todo"
+  "title": "Judul Todo Baru",
+  "description": "Deskripsi Todo yang harus segera dikerjakan",
+  "urgency": "high"
 }
 
 > {%
@@ -151,9 +160,10 @@ Authorization: Bearer {{authToken}}
 Content-Type: application/json
 
 {
-  "title": "Judul Todo",
-  "description": "Deskripsi Todo",
-  "isDone": true
+  "title": "Judul Todo Diupdate",
+  "description": "Deskripsi Todo sudah diupdate",
+  "isDone": true,
+  "urgency": "medium"
 }
 
 ### Mengubah cover todo
