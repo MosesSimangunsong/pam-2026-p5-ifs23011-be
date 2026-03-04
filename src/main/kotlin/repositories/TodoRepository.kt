@@ -35,8 +35,9 @@ class TodoRepository : ITodoRepository {
             }
             op
         }
-            .orderBy(TodoTable.createdAt to SortOrder.DESC) // Diurutkan berdasarkan waktu dibuat
-            .limit(n = perPage, offset = ((page - 1) * perPage).toLong())
+            .orderBy(TodoTable.createdAt to SortOrder.DESC)
+            .limit(perPage)
+            .offset(((page - 1) * perPage).toLong())
             .map(::todoDAOToModel)
     }
 
