@@ -8,6 +8,10 @@ object UserTable : UUIDTable("users") {
     val username = varchar("username", 50)
     val password = varchar("password", 255)
     val photo = varchar("photo", 255).nullable()
+
+    // [NEW] Tambahan kolom untuk fitur informasi Tentang
+    val about = text("about").nullable()
+
     val createdAt = timestamp("created_at")
     val updatedAt = timestamp("updated_at")
 }

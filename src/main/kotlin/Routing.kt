@@ -92,6 +92,10 @@ fun Application.configureRouting() {
                 get {
                     todoService.getAll(call)
                 }
+                // [NEW] Route untuk mengambil summary (harus di atas route /{id})
+                get("/summary") {
+                    todoService.getSummary(call)
+                }
                 post {
                     todoService.post(call)
                 }

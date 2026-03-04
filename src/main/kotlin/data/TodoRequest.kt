@@ -12,6 +12,9 @@ data class TodoRequest(
     var description: String = "",
     var cover: String? = null,
     var isDone: Boolean = false,
+
+    // [NEW] Tambahan properti untuk menampung data urgensi dari client
+    var urgency: String = "low"
 ){
     fun toMap(): Map<String, Any?> {
         return mapOf(
@@ -20,6 +23,7 @@ data class TodoRequest(
             "description" to description,
             "cover" to cover,
             "isDone" to isDone,
+            "urgency" to urgency // [NEW] Masukkan ke dalam map
         )
     }
 
@@ -30,6 +34,7 @@ data class TodoRequest(
             description = description,
             cover = cover,
             isDone = isDone,
+            urgency = urgency, // [NEW] Teruskan data ke Entity
             updatedAt = Clock.System.now()
         )
     }

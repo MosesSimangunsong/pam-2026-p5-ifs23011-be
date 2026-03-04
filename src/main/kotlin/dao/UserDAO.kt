@@ -13,6 +13,10 @@ class UserDAO(id: EntityID<UUID>) : Entity<UUID>(id) {
     var username by UserTable.username
     var password by UserTable.password
     var photo by UserTable.photo
+
+    // [NEW] Mapping untuk kolom informasi Tentang
+    var about by UserTable.about
+
     var createdAt by UserTable.createdAt
     var updatedAt by UserTable.updatedAt
 }

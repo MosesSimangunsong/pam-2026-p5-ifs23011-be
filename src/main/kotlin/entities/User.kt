@@ -14,6 +14,9 @@ data class User(
     var password: String,
     var photo: String? = null,
 
+    // [NEW] Tambahan properti untuk menampung informasi Tentang
+    var about: String? = null,
+
     @Contextual
     val createdAt: Instant = Clock.System.now(),
     @Contextual
